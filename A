@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AYUSH.STUDIO | Creative Portfolio</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #000000;
+  color: white;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+header {
+  padding: 16px 20px;
+  background: #121212;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid #262626;
+}
+
+.logo {
+  color: #c084fc;
+  font-weight: bold;
+  font-size: 20px;
+  letter-spacing: 1px;
+}
+
+nav a {
+  color: #efefef;
+  text-decoration: none;
+  font-size: 13px;
+  margin-left: 12px;
+  font-weight: 500;
+}
+
+.hero {
+  text-align: center;
+  padding: 60px 18px 40px;
+  background: radial-gradient(circle at top, #2d0b4e, #000 80%);
+}
+
+.hero h1 {
+  font-size: 38px;
+  line-height: 1.2;
+  margin-bottom: 15px;
+}
+
+.purple {
+  color: #c084fc;
+}
+
+.hero p {
+  color: #a8a8a8;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  background: #9333ea;
+  color: white;
+  text-decoration: none;
+  font-size: 13px;
+  cursor: pointer;
+  margin: 4px;
+  font-weight: 600;
+}
+
+.btn:hover {
+  background: #a855f7;
+}
+
+.btn-telegram {
+  background: #229ED9;
+}
+
+.btn-telegram:hover {
+  background: #1b85b8;
+}
+
+section {
+  max-width: 900px;
+  padding: 40px 15px;
+  margin: auto;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 26px;
+  margin-bottom: 6px;
+}
+
+.subtitle {
+  text-align: center;
+  color: #8e8e8e;
+  font-size: 13px;
+  margin-bottom: 25px;
+}
+
+/* Service Cards */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 15px;
+}
+
+.card {
+  background: #121212;
+  padding: 20px 12px;
+  border: 1px solid #262626;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.icon {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.price {
+  color: #c084fc;
+  font-size: 22px;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.card p {
+  color: #a8a8a8;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+/* Upload Section */
+.upload-box {
+  background: #121212;
+  border: 2px dashed #9333ea;
+  border-radius: 12px;
+  padding: 20px 15px;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.upload-box p {
+  color: #8e8e8e;
+  font-size: 12px;
+  margin: 8px 0;
+}
+
+input[type="file"] {
+  display: block;
+  width: 100%;
+  margin: 12px 0;
+  color: white;
+  font-size: 12px;
+}
+
+/* Instagram Feed Grid (Posters & Logos) */
+.insta-feed {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+}
+
+.insta-post {
+  background: #121212;
+  border: 1px solid #262626;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.post-header {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  gap: 8px;
+}
+
+.avatar {
+  width: 28px;
+  height: 28px;
+  background: linear-gradient(45deg, #f09433, #bc1888);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: bold;
+}
+
+.username {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.post-media {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background: #000;
+  object-fit: cover;
+  display: block;
+}
+
+.post-caption {
+  padding: 10px;
+  font-size: 12px;
+  color: #efefef;
+  line-height: 1.4;
+}
+
+/* Instagram Reels Grid */
+.reels-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.reel-card {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  background: #121212;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid #262626;
+}
+
+.reel-card video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.reel-badge {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: rgba(0,0,0,0.6);
+  padding: 3px 6px;
+  border-radius: 4px;
+  font-size: 11px;
+}
+
+.contact {
+  text-align: center;
+  padding: 30px 15px;
+  background: #121212;
+  border-radius: 12px;
+  border: 1px solid #262626;
+}
+
+footer {
+  text-align: center;
+  padding: 25px 15px;
+  background: #121212;
+  color: #737373;
+  font-size: 12px;
+  border-top: 1px solid #262626;
+}
+
+@media(max-width: 600px) {
+  .reels-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">AYUSH.STUDIO</div>
+  <nav>
+    <a href="#feed">Feed</a>
+    <a href="#reels">Reels</a>
+    <a href="#services">Services</a>
+  </nav>
+</header>
+
+<div class="hero">
+  <h1>YOUR IDEA.<br><span class="purple">MY CREATIVITY.</span></h1>
+  <p>Poster Design • Logo Design • Typography Reels 🎬</p>
+  
+  <a class="btn" href="https://www.instagram.com/official_ayush_typo/" target="_blank" rel="noopener">📸 Instagram</a>
+  <a class="btn btn-telegram" href="https://t.me/ayush247121" target="_blank" rel="noopener">✈️ Telegram</a>
+</div>
+
+<!-- Upload Section -->
+<section id="upload">
+  <h2 class="section-title">📤 Upload Content</h2>
+  <p class="subtitle">Select photos or videos to showcase in Instagram format.</p>
+
+  <div class="upload-box">
+    <h3>🖼️ Add Poster / Logo Posts</h3>
+    <p>Select images from gallery (Appears in Instagram Feed Cards layout)</p>
+    <input type="file" id="feedInput" accept="image/*" multiple>
+
+    <h3 style="margin-top:15px">🎬 Add Typography Reels</h3>
+    <p>Select video files from gallery (Appears in Vertical Reels Grid)</p>
+    <input type="file" id="reelsInput" accept="video/*" multiple>
+  </div>
+</section>
+
+<!-- Instagram Feed Section (Photos / Posters) -->
+<section id="feed">
+  <h2 class="section-title">📸 Instagram Feed</h2>
+  <p class="subtitle">Posters & Logo Showcase</p>
+
+  <div class="insta-feed" id="instaFeed">
+    <!-- Default Sample Post -->
+    <div class="insta-post">
+      <div class="post-header">
+        <div class="avatar">A</div>
+        <div class="username">official_ayush_typo</div>
+      </div>
+      <div style="background:#1a1a1a; aspect-ratio:1/1; display:flex; align-items:center; justify-content:center; color:#555; font-size:13px;">
+        Upload Image Above 📸
+      </div>
+      <div class="post-caption">
+        <strong>official_ayush_typo</strong> Creative Poster Concept Design ✨
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Instagram Reels Section (Videos) -->
+<section id="reels">
+  <h2 class="section-title">🎬 Typography Reels</h2>
+  <p class="subtitle">Vertical Video Showcase (9:16)</p>
+
+  <div class="reels-grid" id="reelsGrid">
+    <!-- Default Sample Reel -->
+    <div class="reel-card">
+      <div class="reel-badge">🎬 Reel</div>
+      <div style="height:100%; display:flex; align-items:center; justify-content:center; color:#555; font-size:12px; text-align:center; padding:10px;">
+        Upload Video Above 🎥
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Services Section -->
+<section id="services">
+  <h2 class="section-title">🎨 Services & Order</h2>
+  <p class="subtitle">Select a service to start your order</p>
+
+  <div class="grid">
+    <div class="card">
+      <div class="icon">🖼️</div>
+      <h3>Poster Design</h3>
+      <div class="price">₹99</div>
+      <button class="btn" onclick="orderInsta('Poster Design', 99)">Insta Order</button>
+      <button class="btn btn-telegram" onclick="orderTele('Poster Design', 99)">Telegram</button>
+    </div>
+
+    <div class="card">
+      <div class="icon">✨</div>
+      <h3>Logo Design</h3>
+      <div class="price">₹199</div>
+      <button class="btn" onclick="orderInsta('Logo Design', 199)">Insta Order</button>
+      <button class="btn btn-telegram" onclick="orderTele('Logo Design', 199)">Telegram</button>
+    </div>
+
+    <div class="card">
+      <div class="icon">🎬</div>
+      <h3>Typography Reel</h3>
+      <div class="price">₹199</div>
+      <button class="btn" onclick="orderInsta('Typography Reel', 199)">Insta Order</button>
+      <button class="btn btn-telegram" onclick="orderTele('Typography Reel', 199)">Telegram</button>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="contact">
+    <h2>Let's Work Together! ❤️</h2>
+    <p style="color:#aaa; font-size:13px; margin:15px 0;">Have a unique design request? Direct message me on Instagram or Telegram.</p>
+    <a class="btn" href="https://www.instagram.com/official_ayush_typo/" target="_blank" rel="noopener">Instagram DM</a>
+    <a class="btn btn-telegram" href="https://t.me/ayush247121" target="_blank" rel="noopener">Telegram DM</a>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 AYUSH.STUDIO | Creative Portfolio</p>
+</footer>
+
+<script>
+const feedInput = document.getElementById('feedInput');
+const instaFeed = document.getElementById('instaFeed');
+
+const reelsInput = document.getElementById('reelsInput');
+const reelsGrid = document.getElementById('reelsGrid');
+
+// Handle Image Post Upload (Feed)
+feedInput.addEventListener('change', function() {
+  Array.from(this.files).forEach(file => {
+    if (file.type.startsWith('image/')) {
+      const url = URL.createObjectURL(file);
+      
+      const post = document.createElement('div');
+      post.className = 'insta-post';
+      post.innerHTML = `
+        <div class="post-header">
+          <div class="avatar">A</div>
+          <div class="username">official_ayush_typo</div>
+        </div>
+        <img class="post-media" src="${url}" alt="Portfolio Work">
+        <div class="post-caption">
+          <strong>official_ayush_typo</strong> ${file.name}
+        </div>
+      `;
+      instaFeed.prepend(post);
+    }
+  });
+  this.value = '';
+});
+
+// Handle Video Reel Upload (Reels Grid)
+reelsInput.addEventListener('change', function() {
+  Array.from(this.files).forEach(file => {
+    if (file.type.startsWith('video/')) {
+      const url = URL.createObjectURL(file);
+      
+      const reel = document.createElement('div');
+      reel.className = 'reel-card';
+      reel.innerHTML = `
+        <div class="reel-badge">🎬 Reel</div>
+        <video src="${url}" controls playsinline></video>
+      `;
+      reelsGrid.prepend(reel);
+    }
+  });
+  this.value = '';
+});
+
+function orderInsta(service, price) {
+  alert("Service: " + service + "\nPrice: ₹" + price + "\n\nOpening Instagram to order.");
+  window.open("https://www.instagram.com/official_ayush_typo/", "_blank");
+}
+
+function orderTele(service, price) {
+  alert("Service: " + service + "\nPrice: ₹" + price + "\n\nOpening Telegram to order.");
+  window.open("https://t.me/ayush247121", "_blank");
+}
+</script>
+
+</body>
+</html>
